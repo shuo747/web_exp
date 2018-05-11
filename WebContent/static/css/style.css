@@ -1,0 +1,120 @@
+        *{  
+            margin: 0;  
+            padding: 0;  
+            font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,\\5FAE\8F6F\96C5\9ED1,Arial,sans-serif;  
+            -webkit-appearance: none;  
+            -moz-appearance: none;  
+            appearance: none;  
+            -webkit-box-sizing: border-box;  
+            -moz-box-sizing: border-box;  
+            box-sizing: border-box;  
+        }  
+
+       
+        body{  
+            padding-top: 75px;  
+            color: #333;  
+        }  
+        a{  
+            text-decoration: none;  
+            color: #333;  
+        }  
+        a:hover{  
+            color: #406599;  
+        }  
+
+        
+        h3{  
+            font-weight: normal;  
+        }  
+        body>header{  
+            position: fixed;  
+            left: 0;  
+            top: 0;  
+            width: 100%;  
+            height: 50px;  
+            background: pink;  
+            z-index: 10;  
+        }  
+        
+        main{  
+            width: 1140px;  
+            height: 2222px;  
+            margin: 0 auto;  
+            padding-left: 140px;  
+        }  
+  
+        .content{  
+            width: 710px;  
+            float: center;  
+        }  
+        .content>ul>li{  
+       
+            position: relative;  
+            width: 100%;  
+            display:block;
+
+       list-style-type:none;
+
+margin:10px;
+			list-style-type:none;
+             
+        }  
+        .content img{  
+            width: 170px;  
+            height: auto;  
+        }  
+        .content h3{  
+            line-height: 30px;  
+            font-size: 20px;  
+            
+        }  
+        .content .info{  
+            font-size: 14px;  
+            color: #CCC;  
+           
+        }  
+        .content .info>span{  
+            margin-right: 10px;  
+        }  
+        .news_1{  
+        	width: 100%;
+            height: auto;  
+        }  
+        .news_1>a>h3{  
+            position: relative;  
+            left: 500px;  
+            top: 40px;  
+            width: 520px;  
+            height: 60px;  
+
+        }  
+        .news_1>a>img{  
+            position: absolute;  
+            left: 0;  
+            top: 20%;  
+        }  
+        .news_1>.info{  
+            position: absolute;  
+            left: 190px;  
+            top: 90px;  
+  
+        }
+        .news_1>.describe{  
+            top:50%; 
+            left:30%;
+  
+        }  
+
+        div{
+        	vertical-align:middle;
+        }
+
+        
+        
+
+ #photo {float: left; width: 35%;}
+
+#container {width: 100%;}
+#photo {float: left; width: 40%;}
+#content {float: right; width: 60%;}

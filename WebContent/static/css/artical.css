@@ -1,0 +1,22 @@
+text h1{text-align:center;}
+	main{  
+            width: 1140px;  
+            height: 2222px;  
+            margin: 0 auto;  
+            padding-left: 140px;  
+        }
+    .leftimg {
+        margin: 0px 20px 0px 0px;
+        float: left;
+    }
+	.rightimg {
+        margin: 0px 20px 0px 0px;
+        float: right;
+    }
+	
+	p{
+	font-size:24px;
+	}
+        body {
+	background-color: #EDD8D1;
+}
