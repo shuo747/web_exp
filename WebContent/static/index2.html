@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+
+	<head>
+		<title>My Blog</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+		<style type="text/css">
+			body {
+				background: #F7F7F6 url(img/background.gif) repeat-y 50% 0;
+				background-attachment: fixed;
+				margin: 0;
+				padding: 0;
+				text-align: center;
+			}
+			
+			.clear {
+				clear: both;
+			}
+			
+			#container {
+				margin: 0px auto;
+				text-align: left;
+				width: 692px;
+			}
+			
+			h1 {
+				text-indent: -9999px;
+				width: 692px;
+				height: 90px;
+				background: url(img/header.png);
+				margin: 0;
+				padding: 0;
+			}
+			
+			#left {
+				width: 178px;
+				float: left;
+			}
+			
+			#content {
+				width: 479px;
+				float: left;
+				padding: 15px 0 10px 20px;
+			}
+			
+			#content h2 {
+				font: normal 18px Georgia, Times New Roman, Times, serif;
+				background: transparent url(img/bullet_title.gif) no-repeat;
+				color: #80866A;
+				width: 454px;
+				padding: 0 0 0 30px;
+			}
+			
+			#footer {
+				margin: 0px auto;
+				position: relative;
+				background-color: #717F51;
+				border-top: 9px solid #F7F7F6;
+				width: 692px;
+				padding: 5px 0;
+				clear: both;
+			}
+			
+			#footer h2 {
+				maring: 0;
+				text-align: center;
+				font: normal 10px Verdana, Arial, Helvetica, sans-serif;
+				color: #D3D8C4;
+			}
+			
+			#footer h2 a:visited,
+			#footer h2 a:link {
+				color: #D3D8C4;
+				text-decoration: none;
+				border-bottom: 1px dotted #D3D8C4;
+			}
+			
+			#footer h2 a:hover {
+				color: #F7F7F6;
+				text-decoration: none;
+				border-bottom: none;
+				background-color: #A5003B;
+			}
+			
+			.text {
+				font: 11px/18px Verdana, Arial, Helvetica, sans-serif;
+				color: #5B604C;
+				margin-bottom: 10px;
+			}
+			
+			.imageright {
+				float: right;
+				padding: 7px;
+				margin-left: 10px;
+				background-color: #ffffff;
+				border: 1px solid #bac1a3;
+			}
+			/* --- navigation --- */
+			
+			#navcontainer {
+				width: 178px;
+			}
+			
+			#navcontainer ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+				font: bold 12px/22px Verdana, Arial, Helvetica, sans-serif;
+				text-indent: 20px;
+				letter-spacing: 1px;
+				border-bottom: 1px solid #fff;
+			}
+			
+			#navcontainer a {
+				display: block;
+				width: 178px;
+				height: 22px;
+			}
+			
+			#navcontainer a:link,
+			#navcontainer a:visited {
+				background: url(img/bg_navbutton.gif);
+				color: #5C604D;
+				text-decoration: none;
+			}
+			
+			#navcontainer a:hover {
+				background: url(img/bg_navbutton_over.gif);
+				color: #A5003B;
+				text-decoration: none;
+			}
+			
+			#navcontainer li a#current {
+				background: url(img/bg_navbutton_over.gif);
+				color: #A5003B;
+				text-decoration: none;
+			}
+			/* --- favorite links--- */
+			
+			#favlinks {
+				width: 163px;
+				padding-left: 15px;
+				margin-top: 10px;
+			}
+			
+			#favlinks h2 {
+				font: normal 16px Georgia, Times New Roman, Times, serif;
+				color: #5C604D;
+				margin: 0 0 10px 0;
+				padding: 0;
+			}
+			
+			#favlinks ul {
+				margin: 0;
+				padding: 0;
+				list-style-type: none;
+			}
+			
+			ul.extlinks li {
+				background: url(img/bullet_extlink.gif) no-repeat 0 3px;
+				font: normal 11px/16px Verdana, Arial, Helvetica, sans-serif;
+				padding-left: 12px;
+			}
+			
+			.extlinks a:link {
+				color: #A5003B;
+				text-decoration: none;
+				border-bottom: 1px dotted #A5003B;
+			}
+			
+			.extlinks a:visited {
+				color: #6F2D47;
+				text-decoration: none;
+				border-bottom: 1px dotted #959E79;
+			}
+			
+			.extlinks a:hover {
+				background-color: #C3C9B1;
+				color: #A5003B;
+				text-decoration: none;
+				border-bottom: 1px solid #A5003B;
+			}
+		</style>
+		<script type="text/javascript">
+			<!--
+			function getWindowHeight() {
+				var windowHeight = 0;
+				if(typeof(window.innerHeight) == 'number') {
+					windowHeight = window.innerHeight;
+				} else {
+					if(document.documentElement && document.documentElement.clientHeight) {
+						windowHeight = document.documentElement.clientHeight;
+					} else {
+						if(document.body && document.body.clientHeight) {
+							windowHeight = document.body.clientHeight;
+						}
+					}
+				}
+				return windowHeight;
+			}
+
+			function setFooter() {
+				if(document.getElementById) {
+					var windowHeight = getWindowHeight();
+					if(windowHeight > 0) {
+						var contentHeight = document.getElementById('container').offsetHeight;
+						var footerElement = document.getElementById('footer');
+						var footerHeight = footerElement.offsetHeight;
+						if(windowHeight - (contentHeight + footerHeight) >= 0) {
+							footerElement.style.position = 'relative';
+							footerElement.style.top = (windowHeight - (contentHeight + footerHeight)) + 'px';
+						} else {
+							footerElement.style.position = 'static';
+						}
+					}
+				}
+			}
+			window.onload = function() {
+				setFooter();
+			}
+			window.onresize = function() {
+				setFooter();
+			}
+			//-->
+		</script>
+
+	</head>
+
+	<body>
+
+		<!-- Begin Container -->
+		<div id="container">
+
+			<h1>My Blog</h1>
+
+			<!-- Begin LEFT -->
+			<div id="left">
+
+				<!-- Begin navigation -->
+				<div id="navcontainer">
+					<ul>
+						<li>
+							<a href="#" id="current">首页</a>
+						</li>
+						<li>
+							<a href="#">关于</a>
+						</li>
+						
+						<li>
+							<a href="#">文章</a>
+						</li>
+						<li>
+							<a href="#">获取更多</a>
+						</li>
+						<li>
+							<a href="#">联系我</a>
+						</li>
+					</ul>
+				</div>
+				<!-- End navigation -->
+
+				<!-- Begin favorite links -->
+				<div id="favlinks">
+					<h2>My Favorite Sites</h2>
+					<ul class="extlinks">
+						<li>
+							<a href="#">笔架山</a>
+						</li>
+						<li>
+							<a href="#">奉国寺</a>
+						</li>
+						<li>
+							<a href="#">雨雾绿衫</a>
+						</li>
+						<li>
+							<a href="#">观音洞</a>
+						</li>
+						<li>
+							<a href="#">世博园</a>
+						</li>
+					</ul>
+				</div>
+				<!-- End favorite links -->
+
+			</div>
+			<!-- End LEFT -->
+
+			<!-- Begin Content on the RIGHT -->
+			<div id="content">
+				<h2>笔架山</h2>
+
+				<p class="text"><img src="img/bjs1.jpg" alt="image of the dessert" width="150" height="139" class="imageright" />笔架山是坐落在辽宁锦州笔架山风景区内的山峰，位于我国辽宁省西部，面对渤海，毗邻锦州港，坐落在锦州经济技术开发区内。是道教名山胜地，山有三峰，二低一高，形如笔架。</p>
+
+				<p class="text">闾山分北部、中部、南部、东部四个主要游览区，共计一百多个景点。 闾山以寺院为中心形成了十大景区：大石棚、圣水盆、观音阁、白云观、辽代肖太后蜡像馆、元代宰相耶律楚材读书堂、玉泉寺、药王庙、祖峰长城，新建的千米索道把大阁、玉泉寺两景区连为一体。远眺峰峦翠色，近睹千丈危岩，景色秀丽，姿态万千，像一幅恢弘博大的泼墨画卷，给人以美的享受和无尽的遐想。目不暇接的奇峰怪石；千资百态的苍松翠柏；水丝如簾的石棚飞瀑；梨花巧构的“香雪海”，真可谓人间仙境，壮美瑰丽。。</p>
+				
+				<p class="text">笔架山风景区以笔架山岛和“天桥”为主要景点，大致分为岛上游览、海上观光、岸边娱乐、沙滩海浴和度假修养五个区域。总面积8平方公里，其中陆地面积4.72平方公里，海域面积3.28平方公里。这里山水秀丽，环境优美，物产资源丰富，生活服务设施配套，交通便利。自然景点密集，有马鞍桥、一线天、神龟出海、石猴泅渡、虎陷洞、梦兰湾等。有众多的文物古迹：吕祖亭、太阳殿、五母宫、万佛堂、龙王庙、三清阁等。 </p>
+				
+				<p class="text">
+
+从海岸到笔架山岛有一条长1620米的砂石路，人称“天桥”，把海岸和山岛连在一起，象一条蛟龙随着潮涨潮落而时隐时现，神奇绝妙，只有潮落时方可通过，堪称“天下一绝”。 笔架山为道教胜地。山有三峰，二低一高，形如笔架，故而得名；每至潮退之后，山与海岸之间便现出一条三十余米宽、二公里长的“天桥”，可通车马，故俗称“天桥山”。山上悬崖峭壁奇秀，自然风光迷人，自下而上建有山门、真人观、吕祖亭、太阳殿、雷公祠、电母祠、五母宫、方丈院、三清阁等众多道教庙宇及点缀品，其中以主峰之上的三清阁最为精美，阁共六层，通高26.2米，为花岩石仿木结构建筑，八角攒尖顶，飞檐翘角，独具风格，内奉汉白玉石雕道教造像三十七尊，各高二米左右，雕工精美，神态各异；登临阁顶，举目四眺，海天一色，风景绝佳。
+</p>
+
+				
+			</div>
+			<!-- End Content on the RIGHT -->
+
+			<div class="clear">&nbsp;</div>
+
+		</div>
+		<!-- End Container -->
+
+		<!-- Begin Footer -->
+		<div id="footer">
+			<h2>copyright &copy; 2018 Shuo - <a href="http://www.shuo747.com" target="_blank">&reg;</a></h2>
+		</div>
+		<!-- End Footer -->
+
+	</body>
+
+</html>
