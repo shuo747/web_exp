@@ -1,0 +1,254 @@
+<html>
+
+	<head>
+		<meta charset="utf-8"> 
+		<link rel="stylesheet" type="text/css" href="css/exp3.css">
+		<title> 实验三&作业三 </title>
+		<script language="javascript" src="js/exp3.js"></script>
+		<script language="javascript" src="js/jquery-2.1.0.js"></script>
+	</head>
+
+<script>
+			$(document).ready(function() {
+
+				//邮箱
+				$("#email").blur(function() {
+					
+					var mail = $('#email').val();
+					var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/;
+					
+					if($("#email").val() == "") {
+
+						$("#email + .default").text("请输入邮箱");
+						$("#email + .default").css("color", "#ccc");
+
+					} else if(reg.test(mail)) {
+
+						$("#email + .default").text("输入正确");
+						$("#email + .default").css("color", "red");
+						$("#email").attr("verify", "1");
+					} else {
+
+						$("#email + .default").text("输入非法");
+						$("#email + .default").css("color", "red");
+
+					}
+
+				});
+
+				//验证用户名
+				$("#user").focus(function() {
+
+					$("#user + .default").text("用户名应该位2-8字符");
+					$("#user + .default").css("color", "red");
+
+				});
+
+				$("#user").blur(function() {
+
+					if($("#user").val() == "") {
+
+						$("#user + .default").text("请输入用户名");
+						$("#user + .default").css("color", "#ccc");
+
+					} else if($("#user").val().length > 1) {
+
+						$("#user + .default").text("输入正确");
+						$("#user + .default").css("color", "red");
+						$("#user").attr("verify", "1");
+					} else {
+
+						$("#user + .default").text("输入非法");
+						$("#user + .default").css("color", "red");
+
+					}
+
+				});
+
+				//验证密码
+
+				$("#pass").blur(function() {
+
+					if($("#pass").val() != "") {
+
+						$("#pass + .default").text("输入密码合法");
+						$("#pass + .default").css("color", "red");
+						$("#pass").attr("verify", "1");
+
+					} else {
+
+						$("#pass + .default").text("请输入密码");
+						$("#pass + .default").css("color", "red");
+
+					}
+
+				});
+
+				$("#pass").change(function() {
+
+					if($("#pass").val() == $("#pass2").val()) {
+
+						$("#pass2 + .default").text("两次密码匹配");
+						$("#pass2 + .default").css("color", "red");
+						$("#pass2").attr("verify", "1");
+
+					} else {
+
+						$("#pass2 + .default").text("两次密码不一致");
+						$("#pass2 + .default").css("color", "red");
+					}
+
+				}); //这里的change方法是当用户再次输入密码时，需要重新进行验证
+
+				//验证确认密码
+				$("#pass2").blur(function() {
+
+					if($("#pass").val() == $("#pass2").val()) {
+
+						$("#pass2 + .default").text("两次密码匹配");
+						$("#pass2 + .default").css("color", "red");
+						$("#pass2").attr("verify", "1");
+
+					} else {
+
+						$("#pass2 + .default").text("两次密码不一致");
+						$("#pass2 + .default").css("color", "red");
+					}
+
+				});
+
+				//验证其他项
+				$("#other").blur(function() {
+
+					if($("#other").val() == "") {
+
+						$("#other + .default").text("不能为空");
+						$("#other + .default").css("color", "red");
+					} else {
+						$("#other + .default").text("输入合法");
+						$("#other + .default").css("color", "red");
+						$("#other").attr("verify", "1");
+					}
+
+				});
+
+				//提交前进行验证
+				$("#submit").click(function() {
+
+					if($("#user").attr("verify") != 1) {
+
+						$("#user + .default").text("用户名应该在2-3字符以上");
+						$("#user + .default").css("color", "red");
+						return false;
+
+					}
+
+					if($("#pass").attr("verify") != 1) {
+
+						$("#pass + .default").text("请输入密码");
+						$("#pass + .default").css("color", "red");
+						return false;
+
+					}
+
+					if($("#pass2").attr("verify") != 1) {
+
+						$("#pass2 + .default").text("两次密码不一致");
+						$("#pass2 + .default").css("color", "red");
+						return false;
+
+					}
+
+					if($("#pass2").attr("verify") != 1) {
+
+						$("#other + .default").text("输入不合法");
+						$("#other + .default").css("color", "red");
+						return false;
+
+					}
+
+				}); //click方法的关闭
+
+			}); //document.ready方法的关闭
+		</script>
+
+	<body>
+		<form action="../personServlet" name="f1" method="post" onsubmit="return validateForm(this)">
+			<table width="80%" class="default" align="center">
+				<tr class="title">
+					<td colspan="2">信&nbsp;&nbsp;息&nbsp;&nbsp;统&nbsp;&nbsp;计&nbsp;&nbsp;表</tr>
+				</tr>
+				
+				<tr>
+					<td  class="item">用户id</td>
+					<td><input type="text" name="id" size="20" id="userid"><span class="default" name="spaner">请输入id 2-8位</span></td>
+				</tr>
+				<tr>
+					<td  class="item">用户姓名</td>
+					<td><input type="text" name="username" size="20" id="user"><span class="default" name="spaner">请输入用户名 2-10位</span></td>
+				</tr>
+				<tr>
+					<td class="item">密码:</td>
+					<td><input type="text" name="password" size="20" id="pass" ><span class="default" name="spaner">请输入密码6-8位不能与用户名相同</span></td>
+				</tr>
+				<tr>
+					<td class="item">确认密码:</td>
+					<td><input type="text" name="password2" size="20" id="pass2" ><span class="default" name="spaner">请输入密码</span></td>
+				</tr>
+				<tr>
+					<td class="item">生日:</td>
+					<td><input type="text" name="birth" size="20" id="birth" ><span class="default" name="spaner">格式为 1988-1-1</span></td>
+				</tr>
+				<tr>
+					<td class="item">学历:</td>
+					<td>
+						<input type="radio" name="education" value="专科">专科
+						<input type="radio" name="education" value="本科">本科
+						<input type="radio" name="education" value="硕士研究生">硕士研究生
+						<input type="radio" name="education" value="博士研究生">博士研究生
+						<input type="radio" name="education" value="其他">其他
+						<input type="hidden" validatorType="radio" fieldName="sex" errorInfo="请选择性别。">
+					</td>
+				</tr>
+				<tr>
+					<td class="item">地区:</td>
+					<td>
+						<select name="location" emptyInfo="请选择学历。">
+							
+							<option value="东北">东北</option>
+							<option value="2">专科</option>
+							<option value="3">本科</option>
+							<option value="4">硕士</option>
+							<option value="5">博士</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td class="item">e-mail:</td>
+					<td><input type="text" name="email" size="20" id="email" ><span class="default" name="spaner">请输入邮箱</span></td>
+				</tr>
+				<tr>
+					<td class="item">地址:</td>
+					<td><input type="text" name="address" size="20" id="birth" ><span class="default" name="spaner">请输入地址</span></td>
+				</tr>
+				<tr>
+					<td class="item">电话:</td>
+					<td><input type="text" name="tel" size="20" id="birth" ><span class="default" name="spaner">请输入电话</span></td>
+				</tr>
+				<tr>
+					<td class="item">备注:</td>
+					<td><textarea name="tip" rows="5" cols="20" ></textarea></td>
+				</tr>
+				<tr>
+					<td>&nbsp;&nbsp;</td>
+					<td><input type="submit" value="提交" class="btn"><input type="reset" value="重置" class="btn"></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+	
+	
+	
+	
+
+</html>

@@ -1,0 +1,74 @@
+body {
+	background:#ffffff;/*屏幕背景颜色*/
+	margin:15;/*四个边的外延边距*/
+}
+body, table, th, td, input, select, textarea {
+	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+/* 超链接 */
+a {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	text-decoration: none;
+}
+/*点击超链接后样式*/
+a:link, a:visited {
+	color:#0044DD;
+	text-decoration:none;
+}
+/*鼠标停在超链接上和点击超链接的样式*/
+a:hover, a:active {
+	color:#FF5500;
+	text-decoration:underline;
+}
+
+/* 表格边框 */
+table.default {
+	border:1px solid #3366CC;
+	border-collapse:collapse;/*表格边框线*/
+}
+/* 表格所有列 */
+table.default td{
+	padding:2 5 2 5;
+	height:26px;
+	border:1px solid #ffffff;/*白色*/
+	background-color:#f0f0f0;/*灰色*/
+}
+
+/* 表格表头列 */
+table.default tr.title td {
+	font-weight:bold;
+	text-align:center;
+	background:#99CCFF;/*浅蓝色*/
+	color:red;/*字体颜色*/
+	border:1px solid #ffffff;
+	white-space:nowrap;
+	height:26px;
+}
+/* 表格单元中的内容 */
+table.default td.item {
+	font-weight:bold;
+	color:#333333;/*接近黑的灰色*/
+	text-align:right;/*水平对齐方式*/
+	vertical-align:top;/*垂直对齐方式*/
+	padding-top:4px;
+}
+
+/* 按钮 */
+.btn {
+	background: url("../images/btn_bg.gif");
+	background-repeat:repeat-x;
+	border: 3px double #333333;
+	border-color: #909090;
+	color: #333333;
+	padding:0 2;
+	font-size: 12px;
+	height:23px;
+	cursor:hand;
+	margin:3px;
+}
+
+span.default {
+			font-size: 13px;
+			color: #ccc;
+}
